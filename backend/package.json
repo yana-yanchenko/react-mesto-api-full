@@ -1,0 +1,38 @@
+{
+  "name": "express-mesto",
+  "version": "0.0.1",
+  "description": "backend",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "lint": "npx eslint .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yana-yanchenko/express-mesto.git"
+  },
+  "author": "Yana Yanchenko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yana-yanchenko/express-mesto/issues"
+  },
+  "homepage": "https://github.com/yana-yanchenko/express-mesto#readme",
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.2"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "celebrate": "^15.0.0",
+    "express": "^4.17.1",
+    "express-winston": "^4.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.0.12",
+    "nodemon": "^2.0.14",
+    "validator": "^13.7.0",
+    "winston": "^3.3.3"
+  }
+}
