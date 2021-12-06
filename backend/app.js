@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const { errors } = require('celebrate');
 const errorsMy = require('./middlewares/errors');
