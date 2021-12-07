@@ -11,7 +11,8 @@ const Card = ({ card, onCardClick, onCardLike, onCardDelete }) => {
       : "element__button-delete_type_hidden"
   }`;
   
-  const isLiked = card.likes.some((i) => i === currentUser._id);
+  const isLiked = card.likes.some((i)=> i === currentUser._id);
+  console.log(isLiked);
   const cardLikeButtonClassName = `element__button-like ${
     isLiked ? "element__button-like_active" : ""
   }`;
