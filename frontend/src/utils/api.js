@@ -33,10 +33,13 @@ export default class Api {
       .then(this._response)
   }
 
-  getInfoUser() {
+  getInfoUser(token) {
     return fetch(`${this._url}/user/me`, {
         method: 'GET',
-        headers: this._headers
+        headers: {
+          "Content-Type": "application/json",
+          "authorization": `Bearer ${token}`
+        }
       })
       .then(this._response)
   }

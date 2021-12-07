@@ -64,8 +64,9 @@ function App() {
 
   React.useEffect(() => {
     if (loggedIn) {
+      const token = localStorage.getItem("jwt")
       api
-        .getInfoUser()
+        .getInfoUser(token)
         .then((res) => {
           setCurrentUser(res);
         })
