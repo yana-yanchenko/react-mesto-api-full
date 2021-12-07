@@ -71,7 +71,7 @@ function App() {
         .then((res) => {
           setCurrentUser(res);
         })
-        .catch((err) => {
+        .catch((err) => { 
           console.log(err);
         });
     }
