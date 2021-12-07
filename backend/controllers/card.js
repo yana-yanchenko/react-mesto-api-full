@@ -65,7 +65,7 @@ module.exports.setLike = (req, res, next) => {
       if (!card) {
         throw new NotFoundError('404 — Передан несуществующий _id карточки.');
       }
-      return res.status(200).send({ message: 'Лайк поставлен!' });
+      return res.status(200).send(card);
     })
     .catch((err) => {
       if (err.name === 'CastError') {
@@ -81,7 +81,7 @@ module.exports.deleteLike = (req, res, next) => {
       if (!card) {
         throw new NotFoundError('404 — Передан несуществующий _id карточки.');
       }
-      return res.status(200).send({ message: 'Лайк Удалён!' });
+      return res.status(200).send(card);
     })
     .catch((err) => {
       if (err.name === 'CastError') {

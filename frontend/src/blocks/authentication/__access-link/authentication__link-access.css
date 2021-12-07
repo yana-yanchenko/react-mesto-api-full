@@ -1,0 +1,14 @@
+.authentication__link-access {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  margin-top: 15px;
+  color: #fff;
+  text-decoration: none;
+  transition: opacity 0.4s linear;
+}
+
+.authentication__link-access:hover {
+  opacity: 0.6;
+}

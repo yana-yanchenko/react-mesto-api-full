@@ -1,0 +1,17 @@
+.authentication__input {
+  width: 100%;
+  margin-bottom: 30px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #FFFFFF;
+  height: 29px;
+  border: none;
+  border-bottom: 2px solid #CCCCCC;
+  background-color: transparent;
+
+}
+.authentication__input:last-child {
+  margin-bottom: 216px;
+
+}

@@ -1,0 +1,10 @@
+
+.profile__box-avatar{
+  position: relative;
+}
+
+@media screen and (max-width: 800px) {
+  .profile__box-avatar {
+    align-self: center;
+  }
+}
