@@ -22,10 +22,13 @@ export default class Api {
       .then(this._response)
   }
 
-  getInitialCards() {
+  getInitialCards(token) {
     return fetch(`${this._url}/cards`, {
         method: 'GET',
-        headers: this._headers
+        headers: {
+          "Content-Type": "application/json",
+          "authorization": `Bearer ${token}`
+        }
       })
       .then(this._response)
   }

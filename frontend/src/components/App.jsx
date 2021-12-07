@@ -50,11 +50,11 @@ function App() {
 
   React.useEffect(() => {
     if (loggedIn) {
+      const token = localStorage.getItem("jwt")
       api
-        .getInitialCards()
+        .getInitialCards(token)
         .then((data) => {
           setCards(data.reverse());
-          console.log(data);
         })
         .catch((err) => {
           console.log(err);
@@ -68,7 +68,6 @@ function App() {
         .getInfoUser()
         .then((res) => {
           setCurrentUser(res);
-          console.log(res);
         })
         .catch((err) => { 
           console.log(err);
@@ -88,13 +87,11 @@ function App() {
   }
 
   function handleCardLike(card) {
-    console.log(card);
     const isLiked = card.likes.some((i)=> i === currentUser._id);
-    console.log(`Лайкнута ли карточка ранее ${isLiked}`);
     api
       .changeLikeCardStatus(card._id, !isLiked)
       .then((newCard) => {
-        const newCards = cards.map((c) => c._id === card._id ? newCard : c);
+        const newCards = cards.map((c) => c._id === card._id ? newCard.card : c);
         setCards(newCards);
       })
       .catch((err) => {
