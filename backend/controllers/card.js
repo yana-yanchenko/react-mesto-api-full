@@ -8,9 +8,7 @@ module.exports.getAllCards = (req, res, next) => {
     .then((data) => {
       res.status(200).send(data);
     })
-    .catch(() => {
-      next();
-    });
+    .catch(next);
 };
 
 module.exports.createCard = (req, res, next) => {

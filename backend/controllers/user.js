@@ -11,9 +11,7 @@ module.exports.getAllUsers = (req, res, next) => {
     .then((data) => {
       res.status(200).send(data);
     })
-    .catch(() => {
-      next();
-    });
+    .catch(next);
 };
 
 module.exports.getUserId = (req, res, next) => {
@@ -54,7 +52,7 @@ module.exports.createUser = (req, res, next) => {
         if (err.name === 'MongoServerError' && err.code === 11000) {
           next(new ConflictError(`Пользователь с таким ${email} уже существует!`));
         }
-        next();
+        next(err);
       }));
 };
 
@@ -70,7 +68,7 @@ module.exports.updateUserMe = (req, res, next) => {
     })
     .catch((err) => {
       if (err.name === 'CastError') {
-        next(new NotFoundError('404 — Пользователь по указанному _id не найден.'));
+        next(new BadRequestError('400 — Переданы некорректные данные при обновлении профиля.'));
       }
       next(err);
     });
@@ -100,7 +98,7 @@ module.exports.login = (req, res, next) => {
     .then((user) => {
       const payload = { _id: user._id };
       res.send({
-        token: jwt.sign(payload, NODE_ENV !== 'production' ? 'secret' : JWT_SECRET , { expiresIn: '7d' }),
+        token: jwt.sign(payload, NODE_ENV !== 'production' ? 'secret' : JWT_SECRET, { expiresIn: '7d' }),
       });
     })
     .catch((err) => {

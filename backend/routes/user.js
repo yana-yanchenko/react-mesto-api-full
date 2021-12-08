@@ -8,13 +8,13 @@ const auth = require('../middlewares/auth');
 
 router.get('/users', auth, getAllUsers);
 
+router.get('/user/me', auth, getUserMe);
+
 router.get('/users/:userId', auth, celebrate({
   params: Joi.object().keys({
     userId: Joi.string().hex().length(24).required(),
   }),
 }), getUserId);
-
-router.get('/user/me', auth, getUserMe);
 
 router.patch('/users/me', auth, celebrate({
   body: Joi.object().keys({

@@ -31,7 +31,7 @@ app.get('/crash-test', () => {
   setTimeout(() => {
     throw new Error('Сервер сейчас упадёт');
   }, 0);
-}); 
+});
 
 app.use('*', auth, () => { throw new NotFoundError('Не найдено'); });
 
