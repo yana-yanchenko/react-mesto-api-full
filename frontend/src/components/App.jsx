@@ -92,7 +92,7 @@ function App() {
     api
       .changeLikeCardStatus(card._id, !isLiked)
       .then((newCard) => {
-        const newCards = cards.map((c) => c._id === card._id ? newCard.card : c);
+        const newCards = cards.map((c) => c._id === card._id ? newCard : c);
         setCards(newCards);
       })
       .catch((err) => {
